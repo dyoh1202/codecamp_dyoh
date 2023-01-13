@@ -1,0 +1,45 @@
+class="" → className={}
+onclick="" → onClick={}
+
+* CSS-IN-JS 방식
+css 파일 대신 js에 스타일 입력
+js 파일 하나로 통합(효율성 증대) = 간결한 코드, 태그에 의미 부여, 코드 재사용성 증가
+이미 css가 추가된 버튼을 만들어서 변수에 저장하는 방식(기존에는 버튼을 먼저 만들고 css를 부여하는 방식)
+- styled.components
+- emotion
+
+Ex)
+.btn {					const Btn = styled.div`	
+	width: 995px;	→ 		width: 995px;
+}					`
+<button className={styles.btn}>Hello</button>  → <Btn>Hello</Btn>
+
+
+* React는 크로스플랫폼이 가능하다.(React, React-native, React+Electron)
+크로스플랫폼 : 안드로이드와 IOS를 개발할 경우 각각 다른 프레임워크를 사용해야하는데 이와 달리 구분없이 개발, 배포가 가능한 플랫폼
+
+
+* Component
+페이지도 하나의 컴포넌트
+클래스형 컴포넌트보다 함수형 컴포넌트가 더 많이 사용됨
+(클래스형 컴포넌트 전용 기능을 Hooks를 사용해 함수형 컴포넌트에서도 사용가능하게 되었기 때문)
+Ex) import { useState, useEffect } from "react";
+
+함수(function) - 기능을 위한 함수
+                          - 컴포넌트를 위한 함수(Hooks 사용)
+
+이벤트 핸들러 함수(onClick이나 onChange 등 이벤트가 일어날 때 실행되는 함수)
+
+* Hooks
+useEffect == componentDidMount() 컴포넌트가 최초로 그려진 후 실행
+	      == componentDidUpdate() 컴포넌트가 변경되었을 때 실행
+
+
+1. useState : state를 만들어주는 애
+state : 컴포넌트에서 주로 사용되는 변수(let, const와 함께 사용)
+const [state 명, setState] = useState("state 초기값")
+state 명은 화면과 바로 연결되는 변수라서 html 태그안에서는 { } 안에 위치시킨다.
+
+
+
+
