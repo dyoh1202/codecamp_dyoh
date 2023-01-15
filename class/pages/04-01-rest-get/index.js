@@ -7,13 +7,15 @@ export default function RestGetPage() {
 
 
     // 비동기
-    function onClickAsync() {
+    // function onClickAsync() {
+    const onClickAsync = () => {
         const data = axios.get('https://koreanjson.com/posts/1')
         console.log(data)
     }
 
     // 동기
-    async function onclickSync() {
+    // async function onclickSync() {
+    const onclickSync = async () => {
         const data = await axios.get('https://koreanjson.com/posts/1')
         console.log(data)
         setTitle(data.data.title)
