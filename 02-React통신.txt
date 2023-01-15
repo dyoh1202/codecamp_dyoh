@@ -1,0 +1,77 @@
+FTP(파일전송), SMTP(간단한 메일전송), HTTP(텍스트/하이퍼텍스트)
+프론트에서 전송하면 백엔드 컴퓨터에서 정규식 검사 같은 데이터 검증 후 데이터베이스 컴퓨터로 전송, 저장됨.
+
+
+* Rest VS GraphQL
+Rest는 주로 작은 서비스에서 사용. 디비에서 데이터를 가져오는 것이 목적. 주로 백엔드에서 작성하고 호출함.
+Rest는 주소처럼 생긴 이름. axios와 swagger를 사용함.
+
+GraphQL은 주로 큰 서비스에서 사용. 웹 클라이언트가 데이터를 서버로부터 가져오는 것이 목적. 웹 클라이언트 시스템에서 호출.
+GraphQL은 함수처럼 생긴 이름. apollo client와 playground를 사용함.
+
+		axios(rest-API)	apollo-client(graphql-API)
+CREATE -	POST			MUTATION
+UPDATE -	PUT			MUTATION
+DELETE -	DELETE		MUTATION
+READ -	GET			QUERY
+
+const result = axios.post("API 이름") -> const result = useMutation("API 이름")
+const result = axios.put("API 이름") -> const result = useMutation("API 이름")
+const result = axios.delete("API 이름") -> const result = useMutation("API 이름")
+const result = axios.get("API 이름") -> const result = useQuery("API 이름")
+
+즉, rest-api에 비해 더 쉽게 개선된 것이 graphql-api
+mutation과 query의 차이는 엑셀의 변경 여부
+둘 다 통신은 HTTP(HTML 주고받기)
+
+* Endpoints : /users, /comments 처럼 메소드를 실행시키기 위한 url 끝에 오는 주소(?)
+
+* restful : method의 종류에 따라 구분하고 이름을 통일시키기로 한 가이드
+"restful하다" = 엔드포인트를 공통적으로 통일시키고 메소드로만 구분할 수 있게끔 정리되어 있다.
+
+playground에서 graphql api 테스트 시
+사용되는 인자 값에 '!'가 붙어있으면 필수로 필요한 인자(key)임.
+
+* HTTP 메서드에서 PUT과 PATCH의 차이점은?
+둘 다 HTTP 통신의 요청에 사용되며, PUT은 새로운 리소스를 생성하고 나타낸다.
+PATCH는 리소스의 부분적인 수정을 할 때 사용된다.
+
+* REST API의 오버페칭(Over fetching)과 언더페칭(Under fetching)이란?
+
+
+
+* 동기 / 비동기
+- 동기 : api의 순서가 있을 때(서버 컴퓨터가 작업이 끝날 때까지 기다리는 통신)
+자바스크립트는 기본적으로 동기 방식이다.
+
+- 비동기 : 동시에 여러 일을 할 때 사용(두 개 이상의 API를 동시에 불러오는 경우 
+ex.게시판 글 목록 api, 상품 목록 api, 광고 api를 동시에 불러오는 메인화면)
+서버 컴퓨터가 작업이 끝날 때까지 기다리지 않는 통신 → 더 효율적!
+axios 등의 외부 설치프로그램은 대부분 비동기로 작동한다.
+
+에디터에서의 비동기 예시
+const data = axios.get('htts://koreanjson.com/posts/1')
+console.log(data)
+→ 결과는 Promise 
+왜냐하면 결과를 받아올 때까지 기다리지 않고 바로 콘솔에 찍어버리므로!(비동기 이므로)
+
+* await & async 비동기 방식을 동기 방식으로 변경해주기 위함.
+- await : 비동기 api가 다 실행되고 나면 그 때 변수에 그 결과를 담도록, 동기적으로 바꿔주는 것(데이터를 최종적으로 받아올 때까지 기다리도록)
+const data = await axios.get('htts://koreanjson.com/posts/1')
+
+- async : await와 함께 다니는데 함수 이름 앞에 위치함
+async function 함수명() {
+	const data = await axios.get('htts://koreanjson.com/posts/1')
+	console.log(data)
+}
+
+
+
+
+
+
+
+
+
+
+

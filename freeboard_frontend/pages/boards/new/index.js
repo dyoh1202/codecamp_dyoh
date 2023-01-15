@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
     Wrapper,
     Title,
@@ -22,7 +23,7 @@ import {
     RegisterButton,
     Error
 } from '../../../styles/emotion'
-import { useState } from "react"
+
 
 export default function newArticle() {
     
@@ -64,28 +65,20 @@ export default function newArticle() {
         }
     }
 
-    function onClickAddressSearch() {
-        console.log("우편번호 검색 클릭됨!!")
-    }
-
     function onClickRegister() {
-        if(writer === "") {
+        if(!writer) {
             setWriterError("작성자를 입력해주세요.")
         }
-        if(password === "") {
+        if(!password) {
             setPasswordError("비밀번호를 입력해주세요.")
         }
-        if(subject === "") {
+        if(!subject) {
             setSubjectError("제목을 입력해주세요.")
         }
-        if(contents === "") {
+        if(!contents) {
             setContentsError("내용을 입력해주세요.")
         }
         if(writer && password && subject && contents) {
-            console.log(writer)
-            console.log(password)
-            console.log(subject)
-            console.log(contents)
             alert("게시글이 등록되었습니다.")
         }
     }
@@ -119,7 +112,7 @@ export default function newArticle() {
                 <Label>주소</Label>
                 <ZipcodeWrapper>
                     <Zipcode placeholder="07925" />
-                    <ZipcodeButton onClick={onClickAddressSearch}>우편번호 검색</ZipcodeButton>
+                    <ZipcodeButton>우편번호 검색</ZipcodeButton>
                 </ZipcodeWrapper>
                 <Address />
                 <Address />
@@ -131,9 +124,9 @@ export default function newArticle() {
             </InputWrapper>
             <ImageWrapper>
                 <Label>사진 첨부</Label>
-                <UploadButton> + </UploadButton>
-                <UploadButton> + </UploadButton>
-                <UploadButton> + </UploadButton>
+                <UploadButton>＋</UploadButton>
+                <UploadButton>＋</UploadButton>
+                <UploadButton>＋</UploadButton>
             </ImageWrapper>
             <OptionWrapper>
                 <Label>메인 설정</Label>
