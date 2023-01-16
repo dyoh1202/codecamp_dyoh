@@ -1,4 +1,6 @@
 import { useMutation, gql } from "@apollo/client"
+import {useState} from "react";
+import { SellerInput } from "../../styles/emotion"
 
 // graphql 쿼리문
 const CREATE_PRODUCT = gql`
@@ -12,16 +14,20 @@ const CREATE_PRODUCT = gql`
 `
 
 export default function GraphqlMutationProductPages() {
+    const [ seller, setSeller ] = useState("")
+    const [ productName, setProductName ] = useState("")
+    const [ productDetail, setProductDetail ] = useState("")
+    const [ productPrice, setProductPrice ] = useState(0)
     const [ createProduct ] = useMutation(CREATE_PRODUCT)
 
     const onClickSubmit = async () => {
         const result = await createProduct({
             variables: {
-                seller: "훈이",
+                seller: seller,
                 createProductInput: {
-                    name: "마우스",
-                    detail: "훈이가 오래 쓴 마우스",
-                    price: 15000
+                    name: productName,
+                    detail: productDetail,
+                    price: productPrice
                 }
             }
         })
@@ -29,5 +35,30 @@ export default function GraphqlMutationProductPages() {
         alert(result.data.createProduct.message)
     }
 
-    return  <button onClick={onClickSubmit}>GRAPHQL-API(동기) 요청하기</button>
+    const onChangeSeller = (event) => {
+        setSeller(event.target.value)
+    }
+
+    const onChangeProductName = (event) => {
+        setProductName(event.target.value)
+    }
+
+    const onChangeProductDetail = (event) => {
+        setProductDetail(event.target.value)
+    }
+
+    const onChangeProductPrice = (event) => {
+        setProductPrice(parseInt(event.target.value))
+        console.log(event.target.value)
+    }
+
+    return  (
+        <>
+            판매자: <SellerInput onChange={onChangeSeller}></SellerInput>
+            판매 물건 이름: <SellerInput onChange={onChangeProductName}></SellerInput>
+            판매 물건 상세정보: <SellerInput onChange={onChangeProductDetail}></SellerInput>
+            판매 물건 가격: <SellerInput onChange={onChangeProductPrice}></SellerInput>
+            <button onClick={onClickSubmit}>GRAPHQL-API(동기) 요청하기</button>
+        </>
+    )
 }

@@ -94,7 +94,14 @@ const [ 실행함수 ] = useMutation(CREATE_BOARD)
 실제 전달할 변수는 적는 곳에도 '$'를 적어준다.
 
 실제 함수를 실행시키는 곳에서는 'variables'를 적어주어 '$'를 대신한다.
-Ex) 04-04-graphql-mutation-input
+Ex) 04-04-graphql-mutation-input, 04-05-graphql-mutation-product
+
+* URI
+URI = URN + URL
+
+'https://google.com?search=철수#aaa' 에서
+'https://google.com?search=철수'가 URL이고,
+'google.com?search=철수#aaa'가 URN이다.
 
 
 

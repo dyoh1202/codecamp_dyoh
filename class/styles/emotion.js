@@ -48,3 +48,11 @@ export const ContentsInput = styled.textarea`
   border: 1px solid #bdbdbd;
   border-radius: 6px;
 `;
+
+export const SellerInput = styled.input`
+  width: 500px;
+  height: 45px;
+  padding-left: 16px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+`;
