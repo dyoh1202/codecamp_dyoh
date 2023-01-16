@@ -73,6 +73,34 @@ async function 함수명() {
 
 
 
+[apollo-client의 사용 및 _app.js의 동작원리]
+CREATE_BOARD
+mutation {
+  createBoard(writer:"글쓴다", title:"또 썼다", contents:"테스트글 두번째 찾아보자"){
+    number
+    message
+  }
+const [ 실행함수 ] = useMutation(CREATE_BOARD)
+→ 실행함수(); 로 실행
+→ 미리 셋팅 해놓는 구조
+
+* _app.js는 셋팅파일 역할을 함
+모든 파일에서 사용하기 위한 import 설정
+실제로 화면에 보여지는 것은 _app.js의 App()이 실행되는 것
+
+
+[apollo-client에 사용자 입력값 보내주기 실습 및 스코프체인]
+변수를 보내줄 때 '$'를 사용해서 변수의 타입을 적고
+실제 전달할 변수는 적는 곳에도 '$'를 적어준다.
+
+실제 함수를 실행시키는 곳에서는 'variables'를 적어주어 '$'를 대신한다.
+Ex) 04-04-graphql-mutation-input
+
+
+
+
+
+
 
 
 
