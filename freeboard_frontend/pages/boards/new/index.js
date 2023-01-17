@@ -24,6 +24,7 @@ import {
     RegisterButton,
     Error
 } from '../../../styles/emotion'
+import {useRouter} from "next/router";
 
 const CREATE_BOARD = gql`
     mutation createBoard($createBoardInput: CreateBoardInput!){ 
@@ -44,7 +45,8 @@ export default function newBoards() {
     const [ titleError, setTitleError ] = useState("");
     const [ contentsError, setContentsError ] = useState("");
 
-    const [ createBoard ] = useMutation(CREATE_BOARD)
+    const [ createBoard ] = useMutation(CREATE_BOARD);
+    const router = useRouter();
 
     const onChangeWriter = (event) => {
         setWriter(event.target.value)
@@ -107,6 +109,7 @@ export default function newBoards() {
             })
             console.log(result)
         }
+        // router.push("/board/")
     }
 
     return (

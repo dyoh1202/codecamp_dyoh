@@ -1,6 +1,4 @@
 
-M
-freeboard_frontend/.gitignore,1\4\14d5c284b8ebcee1becae07b5111eae60c829ce0
 X
 (class/pages/02-02-counter-state/index.js,3\7\37253998da28c18f8edc938b8b26f81cb4f1da10
 S

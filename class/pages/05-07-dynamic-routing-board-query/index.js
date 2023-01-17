@@ -1,19 +1,19 @@
 import {useRouter} from "next/router";
 
-export default function StaticRoutingPages() {
+export default function DynamicRoutingBoardQueryPages() {
 
     const router = useRouter()
 
     const onClickRoutingOne = async () => {
-        await router.push("/05-06-static-routed-board-query/1")
+        await router.push("/05-08-dynamic-routed-board-query/1")
     }
 
     const onClickRoutingTwo = async () => {
-        await router.push("/05-06-static-routed-board-query/2")
+        await router.push("/05-08-dynamic-routed-board-query/2")
     }
 
     const onClickRoutingThree = async () => {
-        await router.push("/05-06-static-routed-board-query/3")
+        await router.push("/05-08-dynamic-routed-board-query/3")
     }
 
     return (

@@ -14,8 +14,10 @@ Ex) router.push("이동할 페이지")
        router.replace() ...
        router.pathname → 현재 주소 알 수 있음
 
-- 정적 라우팅
+- 정적 라우팅(05-05 & 05-06 실습 내용)
+'http://localhost:3000/boards/1' 처럼 URL에 각 페이지가 쿼리스트링으로 붙는 형태
 - 동적 라우팅
+'http://localhost:3000/boards/' 뒤에 뭐든 올 수 있도록 [ ] 를 사용한 형태
 
 
 [비동기 통신과 리렌더링]
@@ -36,7 +38,7 @@ javascript는 작성된 코드가 상단에서부터 순서대로 실행되기 �
 undefined 이므로 첫 화면이 그려지는 시기에 데이터를 불러오면서 에러가 발생합니다.
 이 부분이 효율적으로 실행되기 위해서 화면을 미리 그려놓고 데이터를 그려주기 위해서 **조건부렌더링**을 사용합니다.
 
-* 조건부 렌더링
+* 조건부 렌더링(데이터가 있으면 보여주고 없으면 ..)
 '&& 연산자', '삼항연산자', '옵셔널체이닝'이 있음.
 1. && 연산자
 {data && data.fetchBoard.title}
@@ -44,6 +46,20 @@ undefined 이므로 첫 화면이 그려지는 시기에 데이터를 불러오�
 data ? data.fetchBoard.title : undefined
 3. 옵셔널체이닝
 data?.fetchBoard.title
+
+
+
+[동적라우팅]
+/ 뒤에 입력한 값이 폴더 경로 중 [ ] 안에 생성되어 그 밑의 index.js로 자동 연결됨
+'http://localhost:3000/boards/1' 로 입력 시 pages/boards/[1]/index.js에 연결됨.
+next.js에서 [] 대괄호는 곧, 동적 라우팅을 의미함.
+
+router를 콘솔에 찍었을 때, 'pathname'과 'route'는 경로 상 주소이고, 'asPath'가 실제 URL
+
+* 템플릿 리터럴
+'+'를 사용해서 변수나 url에 파라미터를 이어 붙일 때 백틱(`)과 ${파라미터}를 활용하는 방법
+Ex) router.push("05-09-dynamic-routed-board-mutation/" + result.data.createBoard.number) 대신
+router.push(`/05-09-dynamic-routed-board-mutation/${result.data.createBoard.number}`)
 
 
 
