@@ -1,0 +1,46 @@
+* 포트폴리오 리뷰(mutation 적용)
+variables의 아래에 createBoardInput이 객체로 들어오는 것에 주의!
+-> variables는 '$'와 같은 의미이므로 넘겨주는 변수를 객체로 넘겨줌
+
+state를 넘겨줄 때, key와 value가 같으면 value를 생략할 수도 있다 ==' shorthand-property'
+
+
+* Routing
+페이지 이동 & 현재 주소 확인 & 주소 관련 기능들
+"next/react"에서 제공함.
+const router = useRouter()
+Ex) router.push("이동할 페이지")
+       router.reload()
+       router.replace() ...
+       router.pathname → 현재 주소 알 수 있음
+
+- 정적 라우팅
+- 동적 라우팅
+
+
+[비동기 통신과 리렌더링]
+* useQuery()
+Apollo-client에서 제공되는 것.
+
+const { data } = useQuery()
+
+'{}'  →  구조분해할당
+
+useMutation은 내가 함수를 실행시키고 싶을 때 불러서 실행 시킬 수 있으나,
+useQuery는 화면이 열리자마자 실행되는 것이 차이점.
+
+!!) 동기 방식으로 api가 실행되기 때문에 useQuery를 사용시 data를 못찾을 때도 있음 
+→ {data && data.fetchBoard.writer}처럼 data가 존재하는 경우 나오도록 'data &&'을 붙여줘서 비동기로 해결.
+=> '조건부 렌더링'
+javascript는 작성된 코드가 상단에서부터 순서대로 실행되기 때문에 데이터를 요청하고 응답을 받아오는 동안 화면에 그려질 데이터의 내용이
+undefined 이므로 첫 화면이 그려지는 시기에 데이터를 불러오면서 에러가 발생합니다.
+이 부분이 효율적으로 실행되기 위해서 화면을 미리 그려놓고 데이터를 그려주기 위해서 **조건부렌더링**을 사용합니다.
+
+* 조건부 렌더링
+'&& 연산자', '삼항연산자', '옵셔널체이닝'이 있음.
+1. && 연산자
+{data && data.fetchBoard.title}
+2. 삼항연산자
+data ? data.fetchBoard.title : undefined
+3. 옵셔널체이닝
+data?.fetchBoard.title

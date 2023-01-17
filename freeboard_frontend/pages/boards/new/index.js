@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { gql, useMutation } from "@apollo/client"
 import {
     Wrapper,
     Title,
@@ -24,62 +25,87 @@ import {
     Error
 } from '../../../styles/emotion'
 
+const CREATE_BOARD = gql`
+    mutation createBoard($createBoardInput: CreateBoardInput!){ 
+      createBoard(createBoardInput: $createBoardInput){         
+        _id
+      }
+    }
+`
 
-export default function newArticle() {
-    
+export default function newBoards() {
     const [ writer, setWriter ] = useState("");
     const [ password, setPassword ] = useState("");
-    const [ subject, setSubject ] = useState("");
+    const [ title, setTitle ] = useState("");
     const [ contents, setContents ] = useState("");
 
     const [ writerError, setWriterError ] = useState("");
     const [ passwordError, setPasswordError ] = useState("");
-    const [ subjectError, setSubjectError ] = useState("");
+    const [ titleError, setTitleError ] = useState("");
     const [ contentsError, setContentsError ] = useState("");
 
-    function onChangeWriter(event) {
+    const [ createBoard ] = useMutation(CREATE_BOARD)
+
+    const onChangeWriter = (event) => {
         setWriter(event.target.value)
-        if(writer !== "") {
+        if(event.target.value !== "") {
             setWriterError("")
         }
     }
 
-    function onChangePassword(event) {
+    const onChangePassword = (event) => {
         setPassword(event.target.value)
-        if(password !== "") {
+        if(event.target.value !== "") {
             setPasswordError("")
         }
     }
 
-    function onChangeSubject(event) {
-        setSubject(event.target.value)
-        if(subject !== "") {
-            setSubjectError("")
+    const onChangeTitle = (event) => {
+        setTitle(event.target.value)
+        if(event.target.value !== "") {
+            setTitleError("")
         }
     }
 
-    function onChangeContents(event) {
+    const onChangeContents = (event) => {
         setContents(event.target.value)
-        if(contents !== "") {
+        if(event.target.value !== "") {
             setContentsError("")
         }
     }
 
-    function onClickRegister() {
+    const onClickRegister = async () => {
         if(!writer) {
             setWriterError("작성자를 입력해주세요.")
         }
         if(!password) {
             setPasswordError("비밀번호를 입력해주세요.")
         }
-        if(!subject) {
-            setSubjectError("제목을 입력해주세요.")
+        if(!title) {
+            setTitleError("제목을 입력해주세요.")
         }
         if(!contents) {
             setContentsError("내용을 입력해주세요.")
         }
-        if(writer && password && subject && contents) {
-            alert("게시글이 등록되었습니다.")
+        if(writer && password && title && contents) {
+            const result =  await createBoard({
+                variables: {
+                    createBoardInput: {
+                        // writer: writer,
+                        // password: password,
+                        // title: title,
+                        // contents: contents
+
+                        // KEY와 VALUE가 같으면, VALUE를 생략할 수도 있다.
+                        // == shorthand-property
+                        writer,
+                        password,
+                        title,
+                        contents
+                    }
+                }
+            })
+            console.log(result)
         }
     }
 
@@ -100,8 +126,8 @@ export default function newArticle() {
             </WriterWrapper>
             <InputWrapper>
                 <Label>제목</Label>
-                <Subject type="text" placeholder="제목을 입력해주세요." onChange={onChangeSubject}></Subject>
-                <Error>{subjectError}</Error>
+                <Subject type="text" placeholder="제목을 입력해주세요." onChange={onChangeTitle}></Subject>
+                <Error>{titleError}</Error>
             </InputWrapper>
             <InputWrapper>
                 <Label>내용</Label>

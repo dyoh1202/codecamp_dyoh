@@ -74,6 +74,8 @@ async function 함수명() {
 
 
 [apollo-client의 사용 및 _app.js의 동작원리]
+Apollo-client는 Graphql API를 호출하기 위한 라이브러리.
+
 CREATE_BOARD
 mutation {
   createBoard(writer:"글쓴다", title:"또 썼다", contents:"테스트글 두번째 찾아보자"){
