@@ -44,3 +44,6 @@ undefined 이므로 첫 화면이 그려지는 시기에 데이터를 불러오�
 data ? data.fetchBoard.title : undefined
 3. 옵셔널체이닝
 data?.fetchBoard.title
+
+
+
