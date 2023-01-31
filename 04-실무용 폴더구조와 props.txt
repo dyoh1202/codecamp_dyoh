@@ -1,0 +1,42 @@
+* RESTful
+엔드포인트를 동일한 이름으로 유지하고 메서드만 바꿔주는 방식 
+Ex)
+GET		/boards	목록보기 = /boards/index.js
+POST		/boards/new	등록하기 = /boards/new/index.js
+PUT		/boards/:id	수정하기						"주소 설계"
+GET		/boards/:id	상세보기 = /boards/[boardId]/index.js	
+DELETE	/boards/:id	삭제하기 = 페이지가 존재하지는 않음.
+
+
+* Container / Presenter 패턴
+한 jsx에서 html 부분이 Presenter, javascript 부분이 Container
+Container는 Presenter의 부모 컴포넌트이며, 부모가 자식에게 넘겨 줄 수 있는함수나 변수를 담고 있는 데이터를 "props"라 한다.
+
+props : 부모 컴포넌트인 Container에서 만든 function을 자식 컴포넌트인 Presenter에서 사용할 수 있게 하기 위해 사용하는 장치
+
+Ex)
+<BoardWriterUI aaa={handleChangeWriter} />에서 props는
+const props = {
+	aaa : handleChangeWriter
+} 형태의 object로 전달되고
+Presenter에서는 매개변수로서 props를 받아 html에서 {props.aaa} 형태로 사용한다.
+
+반대로 자식인 Presenter는 부모 컴포넌트인 Container에 줄 수가 없다.
+
+BoardWrite.container.js도 index.js의 자식이기 때문에 index에서 선언해서 사용할 수 있다.
+
+* 유지보수성 : "얼마나 빠르고 쉽게 고치고 이해할 수 있는 코드를 만드느냐"의 기준
+유지보수성을 위해서 Presenter에는 state나 function을 만드는 등 Container에 들어갈만한 부분을 최대한 배제한다.
+
+
+emotion도 Presenter의 자식 컴포넌트가 될 수 있다.
+
+_app.js  →  index.js  →  BoardWrite.container.js  →  BoardWrite.presenter.js  →  BoardWrite.styles.js 순서대로 자식-부모 관계
+
+
+* export VS export-default 
+React는 부모에서 자식으로만 데이터를 보내줄 수 있는 단방향
+'export default'는 export 할 변수나 function의 default를 정해주어 내보내는 경우,
+'export'는 export할 내용을 직접 선택해서 내보내는 경우.
+
+
