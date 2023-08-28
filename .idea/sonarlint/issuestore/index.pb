@@ -1,10 +1,4 @@
 
-[
-+class/pages/04-02-graphql-mutation/index.js,3\7\37b8adbefb55124c98f707e93b579e446869af8e
-`
-0class/pages/04-03-graphql-mutation-args/index.js,c\5\c5294883352aa539de4b88096d50af5af10fc9b0
-c
-3class/pages/04-05-graphql-mutation-product/index.js,e\9\e9b91ed410e211ddd2ed970dca85ec298ec7a764
 B
 02-React통신.txt,a\0\a09de5451c995839cb4d9b75d2ce31983ad76b7d
 Y
@@ -35,17 +29,31 @@ M
 freeboard_frontend/.gitignore,1\4\14d5c284b8ebcee1becae07b5111eae60c829ce0
 f
 6class/pages/05-06-static-routed-board-query/3/index.js,5\9\59777c86449048dd72fbbe26e3e3c626bcecc20e
-i
-9class/pages/05-09-dynamic-routing-board-mutation/index.js,9\c\9c81159207bb35fb9518a04a3b629a6053a5b747
-q
-Aclass/pages/05-10-dynamic-routed-board-mutation/[number]/index.js,6\1\61f735f499f1702346b5cf0dd8d8d3de4192aac1
 k
 ;class/pages/05-08-dynamic-routed-board-query/[qqq]/index.js,9\a\9aa794ad72307e6b2966941fe90bfebdc342d8e9
-a
-1class/pages/04-04-graphql-mutation-input/index.js,c\5\c52a0994a3a0d916e52ab48146b55b69229d2b3d
 O
 freeboard_frontend/package.json,1\2\124f7ebaf077b49b605daafbe18064d2eb9b0dd3
 B
 class/package.json,b\7\b7380b7602220d36567322af215715e2a47f096e
-N
-class/pages/01-01-qqq/index.js,5\3\53022314ded85d74bc41e48879ccecba4c0339c2
+?
+class/README.md,7\2\72c72c9cef8f1ab006f8d798cd2275415e2dda1d
+[
++freeboard_frontend/styles/emotion-detail.js,1\3\1391612854c6bd534e59513de9f57783bdd4b407
+L
+freeboard_frontend/README.md,c\7\c7226d418625273e691e31fe26ed703e08c28d0b
+R
+"class/pages/01-02-emotion/index.js,f\9\f9ddeb4bed974f5b0d661794ec85d4f8fb49c68f
+c
+3freeboard_frontend/pages/boards/new/BoardWriteUI.js,7\1\71cebd9f8dfb480c9edfa188450d9587abb50122
+T
+$freeboard_frontend/styles/emotion.js,5\c\5c3c8aa71d2c98578f13150b404bc7429c6e397f
+l
+<class/src/components/units/board/write/BoardWrite.queries.js,f\e\fea2ed201d35f7ae9f2938da9c435219b31cafdb
+n
+>class/src/components/units/board/write/BoardWrite.presenter.js,f\8\f872bd6b4faf49f9775538e93d6db1dac13ac726
+Q
+!freeboard_frontend/pages/index.js,e\8\e88b03d0957fd69f63307ac4967f29f6f22f50a9
+P
+ freeboard_frontend/pages/_app.js,8\0\80cb0860f603944b60837414c1fba63f6096c3ea
+k
+;class/src/components/units/board/write/BoardWrite.styles.js,9\c\9c933bb38ec3c1dc86118bf007db08f18f5ab935

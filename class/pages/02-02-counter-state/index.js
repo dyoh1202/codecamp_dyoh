@@ -3,6 +3,10 @@ import { useState } from "react"
 export default function CounterStatePage() {
 
     const [count, setCount] = useState(0)
+
+    const random = Math.random();
+    console.log(random);
+
     function onClickCountUp() {
         setCount(count + 1);
     }

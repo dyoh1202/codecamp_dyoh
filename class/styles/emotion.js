@@ -42,7 +42,7 @@ export const SubjectInput = styled.input`
 
 export const ContentsInput = styled.textarea`
   width: 1170px;
-  height: 400px;
+  height: 300px;
   padding-left: 16px;
   padding: 14px;
   border: 1px solid #bdbdbd;

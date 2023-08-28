@@ -1,31 +1,25 @@
 import axios from "axios";
-import { useState } from "react";
+import {useState} from "react";
 
 export default function RestGetPage() {
 
-    const [ title, setTitle ] = useState("")
+    const [ content, setContent ] = useState("");
 
-
-    // 비동기
-    // function onClickAsync() {
     const onClickAsync = () => {
-        const data = axios.get('https://koreanjson.com/posts/1')
+        const data = axios.get("https://koreanjson.com/posts/2");
         console.log(data)
     }
 
-    // 동기
-    // async function onclickSync() {
-    const onclickSync = async () => {
-        const data = await axios.get('https://koreanjson.com/posts/1')
-        console.log(data)
-        setTitle(data.data.title)
+    const onClickSync = async () => {
+        const data = await axios.get("https://koreanjson.com/posts/2");
+        setContent(data.data.content)
     }
 
     return (
         <>
+            <p>{content}</p>
             <button onClick={onClickAsync}>REST-API 비동기 요청하기</button>
-            <button onClick={onclickSync}>REST-API 동기 요청하기</button>
-            <div>{title}</div>
+            <button onClick={onClickSync}>REST-API 동기 요청하기</button>
         </>
     )
 }

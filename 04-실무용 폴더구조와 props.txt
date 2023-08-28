@@ -12,8 +12,8 @@ DELETE	/boards/:id	삭제하기 = 페이지가 존재하지는 않음.
 한 jsx에서 html 부분이 Presenter, javascript 부분이 Container
 Container는 Presenter의 부모 컴포넌트이며, 부모가 자식에게 넘겨 줄 수 있는함수나 변수를 담고 있는 데이터를 "props"라 한다.
 
-props : 부모 컴포넌트인 Container에서 만든 function을 자식 컴포넌트인 Presenter에서 사용할 수 있게 하기 위해 사용하는 장치
-
+props : 부모 컴포넌용하는 장치
+트인 Container에서 만든 function을 자식 컴포넌트인 Presenter에서 사용할 수 있게 하기 위해 사
 Ex)
 <BoardWriterUI aaa={handleChangeWriter} />에서 props는
 const props = {

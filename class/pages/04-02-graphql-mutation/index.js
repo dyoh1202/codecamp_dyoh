@@ -1,42 +1,33 @@
-import { useMutation, gql } from "@apollo/client"
+import {useState} from "react";
+import axios from "axios";
+import {gql, useMutation} from "@apollo/client";
 
 const CREATE_BOARD = gql`
-    mutation {
-        createBoard(writer:"글쓴다3333", title:"또 썼다3", contents:"333테스트글 두번째 찾아보자"){
-            number
-            message
-        }
+    mutation{
+        createBoard(
+            writer:"김가나다2"
+            , title: "제모오오오옥2"
+            , contents: "커어어어어언테에에엔츠으으으2"
+    ){
+        _id
+        ,number
+        ,message
     }
+}
 `
 
-const DELETE_BOARD = gql`
-    mutation {
-      deleteBoard(number:12344) {
-        number
-        message
-      }
-    }
-`
+export default function GraphqlMutationPage() {
 
-export default function GraphqlMutationPages() {
-    const [createBoard] = useMutation(CREATE_BOARD)
+    const [나의함수] = useMutation(CREATE_BOARD);
+
     const onClickSubmit = async () => {
-        const result = await createBoard()
+        const result = await 나의함수();
         console.log(result)
-        alert(result.data.createBoard.message)
-    }
-
-    const [deleteBoard] = useMutation(DELETE_BOARD)
-    const onClickDelete = async () => {
-        const result = await deleteBoard()
-        console.log(result)
-        alert(result.data.deleteBoard.message)
     }
 
     return (
         <>
-            <button onClick={onClickSubmit}>GRAPHQL-API(동기) 요청하기(create)</button>
-            <button onClick={onClickDelete}>GRAPHQL-API(동기) 요청하기(delete)</button>
+            <button onClick={onClickSubmit}>GRAPHQL-API(동기) 요청하기</button>
         </>
     )
 }
